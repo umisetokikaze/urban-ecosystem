@@ -1,0 +1,9 @@
+# [dev] ローカル開発・CI テストに必要な依存。
+# Cloud Run / Dockerfile は requirements.txt のみを install し、このファイルは使わない。
+-r requirements.txt
+
+pytest>=7.0.0
+
+# [dev/E2E] フロント E2E (§13.2 / tests/e2e/) 用。
+# ブラウザ実体は別途 `python -m playwright install chromium` で取得する。
+playwright>=1.40.0

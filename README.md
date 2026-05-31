@@ -31,7 +31,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-依存は最小構成（runtime = fastapi / uvicorn / httpx、dev = pytest）。
+`requirements.txt` は Cloud Run / runtime 用の最小構成（fastapi / uvicorn / httpx）です。
+ローカルでテストまで行う場合は `pip install -r requirements-dev.txt` を使います。
 Vertex AI Gemini を使う場合のみ `pip install google-genai`（遅延 import のため通常は不要）。
 
 ## 使い方
@@ -80,7 +81,7 @@ DATA_DIR="$PWD/data" PORT=8080 python -m app.main
 ## テスト
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements-dev.txt
 python -m pytest tests -q -m "not requires_api"
 ```
 
